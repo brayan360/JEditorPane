@@ -1,0 +1,52 @@
+
+package demojeditorpane;
+//importar paquetes
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.WindowConstants;
+/**
+ *
+ * @author brayan
+ */
+public class DemoJEditorPane {
+
+    public DemoJEditorPane ()
+    {
+        try
+        {
+          // Preparamos la ventana de ejemplo
+            JFrame v = new JFrame("JEditorPane con HTML");
+            JEditorPane editor = new JEditorPane();
+            JScrollPane scroll = new JScrollPane(editor);
+            v.getContentPane().add(scroll);
+            v.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            
+            // Marcamos el editor para que use HTML 
+            editor.setContentType("text/html");
+            
+            // Insertamos un texto
+            editor.setText(
+              "<head><base href=\"file:d:/\"></head>"+
+                "<b>HolaMundo</b><br>" + "<i>HolaFuente</i><br>" +
+                "<font face=\"arial\">Fuente Arial</font><br>" +
+                "<font face=\"courier\">Auente Courier</font><br>" +
+                "<font size=\"24\">Fuente Grande</font><br>" +
+                "<font color=\"red\">Color Rojo</font><br>");
+            
+            // Se visualiza la ventana
+            v.pack();
+            v.setVisible(true);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    
+    public static void main(String[] args)
+    {
+        new DemoJEditorPane ();
+    }
+}
